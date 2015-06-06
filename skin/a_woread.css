@@ -1,0 +1,81 @@
+@charset "utf-8";
+/*****  
+a_woread_46b45a.css 
+Version: fl20150126-20150421
+Author: Feilong
+Author URI: http://feilong.org
+*****/
+
+
+
+html,body{height:100%}html{overflow-y:auto;zoom:1}body{border:0;margin:0}
+h1,h2,h3,h4,h5,h6{padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;font-weight:400}dl{margin-top:0;margin-bottom:0}dd{margin-left:0}
+ul,ol{padding:0;margin:0;list-style:none}
+
+/*Firefox、ie9 ie8 下 避免父盒子的顶级子盒子 发生 margin-top 溢出*/
+*:before{display:table;line-height:0;content:' ';}
+
+
+/*必须修补样式*/
+.cl{clear:both;}/*人工修补*/
+.cf:before,.cf:after{display:table;line-height:0;content:' ';}.cf:after{clear:both;}.cf{*zoom:1;}
+.rel{ position:relative;}
+.hide{ display:none;}
+
+
+
+
+/** icw 图标，内带文字 width **/
+.icw{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;
+background-repeat:no-repeat;background-position:0 0;background-size:cover;}
+a.icw{cursor:pointer}
+a.icw:hover{text-decoration:none}
+.iw1{width:18px;height:18px;line-height:18px}
+.iw2{width:24px;height:24px;line-height:24px}
+.iw3{width:30px;height:30px;line-height:30px}
+.iw4{width:36px;height:36px;line-height:36px}
+.iw5{width:42px;height:42px;line-height:42px}
+
+
+
+
+
+#RbookComms{font-size:12px;}
+
+
+
+.wrap{ max-width:720px;height:100%; margin-left:auto; margin-right:auto;overflow:auto;background: #FFC;}
+
+/* 豆荚式外观: 荚、豆、盆 */
+.navfx{margin-bottom:1px; position:relative;}
+.navfx>a {float:left;line-height:26px; padding:0 6px;
+color:#000;font-size:14px; cursor:pointer;background:#eee;}
+.navfx .now{background:#FCF;}
+
+.comms{min-height:50px;background:#D9EBF9;}
+.comms{ margin:0% 0;}
+.comm{position:relative;padding:12px 0;margin:0 3%;border-bottom:1px solid #eee;}
+.comm dt{float:left;}
+.commer{display:block;}
+.commer img{width:38px;height:38px;border-radius:50%;}
+.comm dd{margin-left:47px;position:relative;}
+.comm h4{ margin-bottom:5px;color:#949393; font-size:14px; }
+.comm h4 a{ color:#46b45a}
+.commtxt{ line-height:18px;color:#333; font-size:14px;word-wrap:break-word;overflow:hidden}
+.commtxt a{ display:block;}
+.cmbkdesc{ margin-bottom:4px;font-size:14px; color:#8e8e8e;word-wrap:break-word;overflow:hidden}
+
+
+
+
+
+/* 必须样式*/
+.loadinfo{ width:200px; height:24px; line-height:24px; text-align:center;position:fixed; bottom:3%; left:50%; margin-left:-100px;/* margin-top:-12px;*/}
+.iload{background-image:url(loading.gif);}
+
+
+
+
+
+/*cssend*/
+
