@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="browsermode" content="application"/>
+<meta name="x5-page-mode" content="app"/>
+<link href="skin/a_woread.css" rel="stylesheet" />
+<title>大家对此书的评论列表</title>
+</head>
+<body id="RbookComms">
+
+
+<div class="wrap" rel="0">
+
+
+
+
+
+
+
+<h2 class="navfx cf">
+<a id="more1" data-url="server/seemore.php?obj=comm&list=hot" data-pageto="1" data-what="comm" data-notip="暂无书评">热门书评</a>
+<a id="more2" data-url="server/seemore.php?obj=comm&list=all" data-pageto="1" data-what="comm" data-notip="暂无书评">所有书评</a>
+</h2>
+
+
+<div class="comms" id="morefu1"><!--comms --></div>
+<div class="comms hide" id="morefu2"><!--comms --></div>
+
+
+
+<!--wrap --></div> 
+
+
+
+<script src="js/jq.js"></script>
+<script src="js/toe.js"></script>
+
+<script src="js/flbase.js"></script>
+
+<script src="js/fltabtogs.js"></script>
+
+
+<script src="js/flupmore.js"></script>
+<script>
+
+$(function(){
+
+fltabtogs('.wrap','.navfx a','.comms','tab');
+fl_load2(2,0,1);
+
+});/*0*/
+
+
+/*jsonp跨域上拉翻页。显示返回数据项。显示返回数据组的每项。what不同，html字符串组装结构不一样. */
+function flobjli(obj,what){
+//console.log(obj);
+
+/*如果展示的是评论*/
+if(what==='comm'){
+var li=new Array(),listr;
+
+
+li.push('<dl class="comm cf">');
+li.push('<dt>');
+li.push('<a class="commer" href="user.html?userid'+obj.iduser+'"><img src="'+obj.avguser+'"/></a>');
+li.push('</dt>');
+li.push('<dd>');
+li.push('<h4><a href="user.html?userid='+obj.iduser+'">'+obj.nameuser+'</a> 发表书评</h4>');
+li.push('<p class="commtxt"><a href="book-comm.html?commid='+obj.commid+'">'+obj.commtxt+'</a></p>');
+li.push('<p><sup class="stars starnow'+(obj.starnow-1)+'" data-fn="off">');
+li.push('<i class="ico star star0"></i><i class="ico star star1"></i><i class="ico star star2"></i><i class="ico star star3"></i><i class="ico star star4"></i>');
+li.push('</sup></p>');
+li.push('<p class="cmbkdesc">'+obj.cmbkdesc+'</p>');
+li.push('<p class="cmbk cf">');
+li.push('<a href="book.html?bookid='+obj.bookid+'"><img class="cmbkimg" src="'+obj.cmbkimg+'" /></a>');
+li.push('<b class="cmbktit">'+obj.cmbktit+'</b>');
+li.push('<b class="cmbkauthor">'+obj.cmbkauthor+'</b>');
+//li.push('<a class="btn btn2 btnyd" href="book.html?bookid='+obj.bookid+'">查看详情</a>');
+li.push('</p>');
+li.push('<p class="cf commacs">');
+li.push('<span class="commdate">'+obj.commdate+'</span>');
+
+
+var oupc=(obj.upc==1)?' on':'',odnc=(obj.dnc==1)?' on':'';
+var sid='igoodo'+obj.commid+obj.iduser;/*var sidval=$.jStorage.get(sid);
+if(sidval=='add'){oupc=' on';}*/
+var sid2='ibado'+obj.commid+obj.iduser;/*var sidval2=$.jStorage.get(sid2);
+if(sidval2=='cut'){odnc=' on';}*/
+
+li.push('<span class="commvote">');
+li.push('<i class="ico ibado'+odnc+'" data-url="server/vote.php" data-arg="ac=ibado&obj=comm&id='+obj.commid+'" sid="'+sid2+'">'+obj.ibadonum+'</i><b class="inb addcut"></b>');
+li.push('<i class="ico igoodo'+oupc+'" data-url="server/vote.php" data-arg="ac=igoodo&obj=comm&id='+obj.commid+'" sid="'+sid+'">'+obj.igoodonum+'</i><b class="inb addcut"></b>');
+li.push('</span>');
+
+
+li.push('</p>');
+li.push('</dd>');
+li.push('</dl>');
+
+
+listr=li.join("\n");
+}
+
+
+
+/*other what ....*/
+
+return listr; 
+}/*0.5*/
+
+</script>
+
+
+</body>
+</html>
